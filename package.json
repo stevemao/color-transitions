@@ -1,0 +1,45 @@
+{
+  "name": "color-transitions",
+  "version": "0.0.0",
+  "description": "Smooth color transitions",
+  "license": "MIT",
+  "repository": "stevemao/color-transitions",
+  "author": {
+    "name": "Steve Mao",
+    "email": "maochenyan@gmail.com",
+    "url": "github.com/stevemao"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && nyc ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "color",
+    "transitions",
+    "timing",
+    "animations"
+  ],
+  "dependencies": {
+    "color": "^0.11.3"
+  },
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "coveralls": "^2.11.12",
+    "nyc": "^8.1.0",
+    "xo": "^0.16.0"
+  },
+  "xo": {
+    "esnext": true
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }
+}
