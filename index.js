@@ -1,9 +1,11 @@
 'use strict';
 const Color = require('color');
+const eases = require('eases');
+
 const tick = setImmediate || process.nextTick || setTimeout;
 
 function howMuchTransition(elapsed, duration, timing) {
-	return 1 - elapsed / duration;
+	return 1 - (elapsed / duration);
 }
 
 module.exports = (color1, color2, opts, cb) => {
@@ -17,6 +19,10 @@ module.exports = (color1, color2, opts, cb) => {
 		timing: 'linear',
 		threshold: null
 	}, opts);
+
+	if (typeof opts.timing === 'string') {
+		opts.timing = eases[opts.timing];
+	}
 
 	color1 = new Color(color1);
 	color2 = new Color(color2);

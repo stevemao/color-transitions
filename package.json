@@ -25,7 +25,8 @@
     "animations"
   ],
   "dependencies": {
-    "color": "^0.11.3"
+    "color": "^0.11.3",
+    "eases": "^1.0.8"
   },
   "devDependencies": {
     "ava": "^0.16.0",
