@@ -3,6 +3,8 @@
 > Smooth color transitions
 
 
+**WIP, code is incomplete**
+
 ## Install
 
 ```
