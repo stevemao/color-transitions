@@ -46,3 +46,24 @@ test.cb('expo-out', t => {
 		lastR = currentR;
 	});
 });
+
+test.cb('stop half way', t => {
+	let lastR = 0;
+	let callCount = 0;
+
+	setTimeout(() => {
+		t.true(lastR > 120 && lastR < 140);
+		t.is(callCount, 30);
+		t.end();
+	}, 1000);
+
+	m('blue', 'red', color => {
+		// console.log(color);
+		callCount++;
+
+		if (callCount === 30) {
+			lastR = color[0];
+			return false;
+		}
+	});
+});

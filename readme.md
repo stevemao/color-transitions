@@ -56,6 +56,39 @@ Default: `60`
 
 Maximum number of callbacks that can occur in one second.
 
+##### iterations
+
+Type: `number`<br>
+Default: `1`
+
+How many transitions between two colors.
+
+#### cb
+
+Type: `function`
+
+Callback function. If return `false`, stop immediately.
+
+##### cb(color, delta, iteration)
+
+###### color
+
+Type: `array`
+
+RGB array
+
+###### delta
+
+Type: `number`
+
+How much time has passed since last callback in milliseconds.
+
+###### iteration
+
+Type: `number`
+
+Which iteration. Counting from 1. `0` means done.
+
 
 ## License
 

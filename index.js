@@ -76,7 +76,9 @@ module.exports = (color1, color2, opts, cb) => {
 					return;
 				}
 
-				cb(color.rgbArray(), delta);
+				if (cb(color.rgbArray(), delta) === false) {
+					return;
+				}
 			}
 		}
 
