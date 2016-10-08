@@ -59,7 +59,7 @@ module.exports = (color1, color2, opts, cb) => {
 				if (delta > idealTimeToCall * 2) {
 					timeToCall = 0;
 				} else {
-					timeToCall = idealTimeToCall * 2 - delta;
+					timeToCall = (idealTimeToCall * 2) - delta;
 				}
 			}
 

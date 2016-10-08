@@ -47,6 +47,8 @@ Default: `'linear'`
 
 The transition timing function option is used to describe how the intermediate values of the color being affected by a transition effect are calculated. This in essence lets you establish an acceleration curve, so that the speed of the transition can vary over its duration.
 
+If this is string, the function would be from [eases](https://github.com/mattdesl/eases).
+
 ##### threshold
 
 Type: `number`<br>
