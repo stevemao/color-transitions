@@ -13,7 +13,7 @@ test.cb('linear', t => {
 		t.true(color[0] > 0);
 		t.true(color[2] < 255);
 		const currentR = color[0];
-		t.true(lastR < currentR);
+		t.true(lastR <= currentR);
 		lastR = currentR;
 	});
 });

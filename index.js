@@ -5,7 +5,9 @@ const eases = require('eases');
 const tick = setImmediate || process.nextTick || setTimeout;
 
 function howMuchTransition(elapsed, duration, timing) {
-	return 1 - (elapsed / duration);
+	// TODO: not sure why we need `1 -` here.
+	// probably related to https://github.com/Qix-/color/issues/46
+	return 1 - timing(elapsed / duration);
 }
 
 module.exports = (color1, color2, opts, cb) => {
@@ -22,6 +24,10 @@ module.exports = (color1, color2, opts, cb) => {
 
 	if (typeof opts.timing === 'string') {
 		opts.timing = eases[opts.timing];
+
+		if (!opts.timing) {
+			throw new Error('Unknown timing function');
+		}
 	}
 
 	color1 = new Color(color1);

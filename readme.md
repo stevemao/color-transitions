@@ -17,29 +17,42 @@ $ npm install --save color-transitions
 ```js
 const colorTransitions = require('color-transitions');
 
-colorTransitions('unicorns');
-//=> 'unicorns & rainbows'
+colorTransitions('blue', 'red', color => {
+	// `color` will be the color value between 'blue' and 'red'
+});
 ```
 
 
 ## API
 
-### colorTransitions(input, [options])
+### colorTransitions(color1, color2, [options], cb)
 
-#### input
+#### color1, color2
 
-Type: `string`
-
-Lorem ipsum.
+Same as the [color setter](https://github.com/Qix-/color#setters).
 
 #### options
 
-##### foo
+##### duration
 
-Type: `boolean`<br>
-Default: `false`
+Type: `number`<br>
+Default: `1000`
 
-Lorem ipsum.
+The transition duration option specifies the number of seconds or milliseconds a transition animation should take to complete.
+
+##### timing
+
+Type: `string` or `function`<br>
+Default: `'linear'`
+
+The transition timing function option is used to describe how the intermediate values of the color being affected by a transition effect are calculated. This in essence lets you establish an acceleration curve, so that the speed of the transition can vary over its duration.
+
+##### threshold
+
+Type: `number`<br>
+Default: `60`
+
+Maximum number of callbacks that can occur in one second.
 
 
 ## License
