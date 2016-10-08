@@ -3,7 +3,7 @@
 > Smooth color transitions
 
 
-**WIP, code is incomplete**
+**Experimental module**
 
 ## Install
 
