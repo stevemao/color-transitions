@@ -58,10 +58,10 @@ Maximum number of callbacks that can occur in one second.
 
 ##### iterations
 
-Type: `number`<br>
+Type: `number` or `boolean`<br>
 Default: `1`
 
-How many transitions between two colors.
+How many transitions between two colors. Specify `true` to make it infinite.
 
 #### cb
 
@@ -87,7 +87,13 @@ How much time has passed since last callback in milliseconds.
 
 Type: `number`
 
-Which iteration. Counting from 1. `0` means done.
+Which iteration. Counting from 1.
+
+###### done
+
+Type: `boolean`
+
+Is the transition done?
 
 
 ## License

@@ -17,10 +17,14 @@ module.exports = (color1, color2, opts, cb) => {
 	opts = Object.assign({
 		duration: 1000,
 		timing: 'linear',
-		threshold: 60
+		threshold: 60,
+		iterations: 1
 	}, opts);
 
 	let tick;
+	let elapsed;
+	let first;
+	let iterationCount = 0;
 
 	if (opts.threshold) {
 		tick = setTimeout;
@@ -39,8 +43,10 @@ module.exports = (color1, color2, opts, cb) => {
 	color1 = new Color(color1);
 	color2 = new Color(color2);
 
-	let elapsed = 0;
-	const first = new Date().getTime();
+	function reset() {
+		elapsed = 0;
+		first = new Date().getTime();
+	}
 
 	function next(color1, color2, lastTime) {
 		const currTime = new Date().getTime();
@@ -72,14 +78,24 @@ module.exports = (color1, color2, opts, cb) => {
 				color.mix(color2, percent);
 				if (currTime >= first + duration) {
 					// last call, flush out color2
-					cb(color2.rgbArray(), delta);
+					if (iterationCount < opts.iterations || opts.iterations === true) {
+						cb(color2.rgbArray(), delta, iterationCount, false);
+						next(color2, color1);
+					} else {
+						cb(color2.rgbArray(), delta, iterationCount, true);
+					}
+
 					return;
 				}
 
-				if (cb(color.rgbArray(), delta) === false) {
+				if (cb(color.rgbArray(), delta, iterationCount, false) === false) {
 					return;
 				}
 			}
+		} else {
+			// first call
+			iterationCount++;
+			reset();
 		}
 
 		tick(() => {
