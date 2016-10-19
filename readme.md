@@ -5,6 +5,8 @@
 
 **Experimental module**
 
+[Visual demo](http://www.webpackbin.com/41GwsiZa-)
+
 ## Install
 
 ```
